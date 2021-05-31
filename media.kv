@@ -1,0 +1,26 @@
+#:kivy 2.0.0
+
+<MainLayout>:
+    video_player: video_player
+    files: files
+    ok: ok
+    orientation: "vertical"
+
+    BoxLayout:
+        size_hint: 1, None
+        size: 0, "60dp"
+        orientation: "horizontal"
+        Button:
+            id: files
+            text: "Files"
+            on_press: root.open_file_chooser()
+
+        Button:
+            id: ok
+            text: "Ok"
+            on_press: root.on_selection()
+            disabled: True
+    VideoPlayer:
+        id: video_player
+        source: "" + root.filename[0]
+#        source: "D:/movies/Ender's Game (2013) [1080p]/Ender's.Game.2013.1080p.BluRay.x264.YIFY.mp4"
